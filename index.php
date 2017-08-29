@@ -1,4 +1,3 @@
-<html>
-	<?php $nome="Amanda";	?>
-	<h1>Loja da <?php echo $nome;?></h1>
-</html>
+<?php include("cabecalho.php"); ?>
+            <h1>Bem vindo!</h1>
+<?php include("rodape.php"); ?>
