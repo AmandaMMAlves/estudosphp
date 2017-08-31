@@ -1,21 +1,24 @@
-<?php include("cabecalho.php") ?>
-	<?php
+<?php include("cabecalho.php"); ?>
+<?php include("conecta.php"); ?>
 
-		function InsereProduto($conexao, $nome, $preco){
-			$query = "INSERT INTO produtos (nome, preco) VALUES ('{$nome}', {$preco})";	
-			return mysqli_query($conexao, $query);
-		}
+<?php
 
-		$nome = $_GET["nome"];
-		$preco = $_GET["preco"];
-		$conexao = mysqli_connect('localhost', 'root', 'root', 'loja', '3306');		
-		
-		if(InsereProduto($conexao, $nome, $preco)){ ?>
-			<p class="text-success">Produto <?php echo $nome?>, <?php echo $preco ?> adicionado com sucesso!</p>
+function insereProduto($conexao, $nome, $preco) {
+    $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
+    return mysqli_query($conexao, $query);
+}
 
-		<?php } else { $msg = mysqli_error($conexao); ?>
+$nome = $_GET["nome"];
+$preco = $_GET["preco"];
 
-			<p class="text-danger">Produto <?php echo $nome?>, não foi adicionado: <?= $msg ?></p>
-		<?php 	} ?>
-	
-<?php include("rodape.php") ?>
+if(insereProduto($conexao, $nome, $preco)) { ?>
+    <p class="text-success">O produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!</p>
+<?php } else {
+    $msg = mysqli_error($conexao);
+?>
+    <p class="text-danger">O produto <?= $nome; ?> não foi adicionado: <?= $msg ?></p>
+<?php
+}
+?>
+
+<?php include("rodape.php"); ?>
