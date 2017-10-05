@@ -16,13 +16,7 @@
 		<td><?= $produto['preco']; ?></td>
 		<td><?= substr($produto['descricao'], 0, 40) ; ?></td>
 		<td><?= $produto['categoria_nome']; ?></td>
-		<td>
-			<label>Usado:</label>
-			<?php 
-				$checkvalue = $produto['usado'] == true ? 1 : 0;
-			?>
-			<input type="checkbox" value="<?= $checkvalue ?>" disabled>
-		</td>
+		<td><a href="produto-altera-formulario.php?id=<?= $produto['id']; ?>" class="btn btn-primary">Alterar</a></td>
 		<td>
             <form action="remove-produto.php" method="POST">
             	<input type="hidden" name="id" value="<?=$produto['id']?>"/>
