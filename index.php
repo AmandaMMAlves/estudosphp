@@ -1,10 +1,15 @@
-<?php include("cabecalho.php"); ?>
+<?php include("cabecalho.php");
+      include("logica-usuario.php"); ?>
             <h1>Bem vindo!</h1>
-            <?php if(isset($_COOKIE["usuario_logado"])) { ?>
-            <p class="text-success"> 
-                  Usuario logado como: <?=$_COOKIE["usuario_logado"]?>
-            </p> <?php } else { ?>
+            <?php if(isset($_GET["falha_seguranca"]) && $_GET["falha_seguranca"] == true)
+            { ?>
 
+            <p class="alert-danger">Tá tudo errado! É preciso fazer o login, para adicionar produtos</p>
+
+            <?php } if(usuarioEstaLogado()) { ?>
+            <p class="text-success"> 
+                  Usuario logado como: <?= usuarioLogado(); ?>
+            </p> <?php } else { ?>
             <?php
             if(isset($_GET['logado'])&& $_GET['logado'] == true) { ?>
             <p class="alert-success">Usuario logado com sucesso</p> 

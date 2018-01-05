@@ -1,11 +1,14 @@
 <?php include("cabecalho.php"); 
     include("conecta.php");
     include("banco-categoria.php");
-    $categorias = listaCategorias($conexao)
+    include("logica-usuario.php");
+    verificaUsuario();
+    
+    $categorias = listaCategorias($conexao);
 ?>
 
 <h1>Cadastro de produto</h1>
-<?php if(isset($_COOKIE["usuario_logado"])){ ?>
+
 <form action="adiciona-produto.php" method="POST">
     <table class="table">
         <tr>
@@ -43,7 +46,7 @@
         </tr>
     </table>
 </form>
-<?php } else { ?>
-<h3>Tá tudo errado! É preciso fazer o login, para adicionar produtos</h3>
-<?php } ?>
+
+
+
 <?php include("rodape.php"); ?>
