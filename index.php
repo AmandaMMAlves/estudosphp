@@ -1,7 +1,10 @@
 <?php include("cabecalho.php");
       include("logica-usuario.php"); ?>
             <h1>Bem vindo!</h1>
-            <?php if(isset($_GET["falha_seguranca"]) && $_GET["falha_seguranca"] == true)
+            <?php if(isset($_GET["logout"]) && $_GET["logout"] == true) {
+            ?>
+            <p class="alert-success">Usuario deslogado com sucesso!</p>
+            <?php } if(isset($_GET["falha_seguranca"]) && $_GET["falha_seguranca"] == true)
             { ?>
 
             <p class="alert-danger">Tá tudo errado! É preciso fazer o login, para adicionar produtos</p>
@@ -9,6 +12,7 @@
             <?php } if(usuarioEstaLogado()) { ?>
             <p class="text-success"> 
                   Usuario logado como: <?= usuarioLogado(); ?>
+                  <a href="logout.php">Deslogar</a>
             </p> <?php } else { ?>
             <?php
             if(isset($_GET['logado'])&& $_GET['logado'] == true) { ?>
