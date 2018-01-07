@@ -1,22 +1,14 @@
 <?php include("cabecalho.php");
-      include("logica-usuario.php"); ?>
-            <?php if(isset($_SESSION["success"])) { ?>
-                  <p class="alert-success"><?= $_SESSION["success"] ?></p> 
-            <?php  unset($_SESSION["success"]); } ?>
+      include("logica-usuario.php");?>
 
-            <?php if(isset($_SESSION["danger"]))
-            { ?> <p class="alert-danger"><?= $_SESSION["danger"] ?></p>
-            <?php unset($_SESSION["danger"]); } ?>
+      <h1>Bem vindo!</h1>
 
-            <h1>Bem vindo!</h1>
-
-            <?php if(usuarioEstaLogado()) { ?>
+      <?php if(usuarioEstaLogado()) { ?>
             <p class="text-success"> 
                   Usuario logado como: <?= usuarioLogado(); ?>
                   <a href="logout.php">Deslogar</a>
             </p> <?php } else { ?>
-            
-
+          
             <h2>Login</h2>
             <form action="login.php" method="post">            
             <table class="table">
@@ -33,5 +25,5 @@
             	</tr>
             </table>
             </form>
-            <?php } ?>
+      <?php } ?>
 <?php include("rodape.php"); ?>
