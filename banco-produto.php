@@ -21,7 +21,6 @@ function buscaProduto($conexao,$id)
 function alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado) 
 {
 	$query = "UPDATE produtos SET nome = '{$nome}', preco = {$preco}, descricao = '{$descricao}', categoria_id = {$categoria_id}, usado = {$usado} WHERE id = {$id}";
-	echo $query;
 	return mysqli_query($conexao, $query);
 }
 
