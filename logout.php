@@ -1,4 +1,4 @@
-<?php include("logica-usuario.php");
+<?php require_once("logica-usuario.php");
 
 logout();
 $_SESSION["success"] = "Usuario deslogado com sucesso!";

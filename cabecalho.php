@@ -1,6 +1,6 @@
 <?php 
 error_reporting(E_ALL ^ E_NOTICE);
-include("mostrar-alerta.php"); ?>
+require_once("mostrar-alerta.php"); ?>
 <html>
 <head>
     <title>Minha loja</title>
@@ -18,7 +18,7 @@ include("mostrar-alerta.php"); ?>
                 <ul class="nav navbar-nav">
                     <li><a href="produto-formulario.php">Adiciona Produto</a></li>
                     <li><a href="produto-lista.php">Produtos</a></li>
-                    <li><a href="sobre.php">Sobre</a></li>
+                    <li><a href="contato.php">Contato</a></li>
                 </ul>
             </div>
         </div>
